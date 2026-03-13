@@ -3,37 +3,72 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>하루 설계 - AI 사주 가이드</title>
+    <title>하루테크 - 여신의 부름</title>
     <style>
-        body { margin: 0; padding: 0; background: #0a0e17; color: white; font-family: 'Apple SD Gothic Neo', sans-serif; text-align: center; }
-        .hero { background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1534841090574-cba2d662b62e?q=80&w=2070&auto=format&fit=crop'); 
-                height: 60vh; background-size: cover; background-position: center; display: flex; flex-direction: column; justify-content: center; align-items: center; }
-        .logo { color: #ffbc00; font-size: 24px; font-weight: bold; margin-bottom: 20px; }
-        h1 { font-size: 32px; margin: 10px 0; }
-        .score-circle { width: 150px; height: 150px; border: 5px solid #ffbc00; border-radius: 50%; display: flex; flex-direction: column; justify-content: center; margin: 20px auto; }
-        .score-num { font-size: 48px; font-weight: bold; }
-        .btn { background: #1a4da1; color: white; padding: 15px 40px; border-radius: 30px; text-decoration: none; font-size: 18px; font-weight: bold; display: inline-block; margin-top: 20px; }
+        body, html { margin: 0; padding: 0; overflow: hidden; background: #000; font-family: 'Pretendard', sans-serif; }
+        
+        /* 1. 배경 설정 */
+        .scene {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            background: url('bg001.jpg') no-repeat center center;
+            background-size: cover;
+        }
+
+        /* 2. 캐릭터 설정 (자동 누끼/필터링 효과 포함) */
+        .character {
+            position: absolute;
+            bottom: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%; /* 화면 크기에 맞춰 조절 */
+            z-index: 2;
+            /* 여신님이 공중에 떠 있는 듯한 애니메이션 */
+            animation: float 4s ease-in-out infinite;
+            /* 흰색 배경을 투명하게 만드는 마법의 한 줄 (mix-blend-mode) */
+            /* 만약 누끼를 이미 따셨다면 아래 줄은 지워주세요 */
+            mix-blend-mode: multiply; 
+        }
+
+        @keyframes float {
+            0%, 100% { bottom: 5%; }
+            50% { bottom: 7%; }
+        }
+
+        /* 3. 말풍선 설정 */
+        .dialogue-box {
+            position: absolute;
+            bottom: 10%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 85%;
+            background: rgba(0, 0, 0, 0.7); /* 반투명 블랙 */
+            border: 2px solid rgba(255, 215, 0, 0.5); /* 은은한 금색 테두리 */
+            border-radius: 15px;
+            padding: 20px;
+            color: white;
+            z-index: 3;
+            text-align: center;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        .name { color: #ffd700; font-weight: bold; font-size: 1.1em; margin-bottom: 8px; }
+        .text { line-height: 1.6; font-size: 0.95em; word-break: keep-all; }
     </style>
 </head>
 <body>
-    <div class="hero">
-        <div class="logo">하루 설계</div>
-        <h1>오늘 당신의 운명 점수는?</h1>
-        <div class="score-circle">
-            <span style="font-size: 14px;">종합 점수</span>
-            <span class="score-num">85</span>
-        </div>
-        <p>"오늘 금(金)의 기운이 강하니 투재에 길합니다."</p>
-        <a href="#" class="btn">상세 리포트 보러가기</a>
-    </div>
-    
-    <div style="padding: 40px 20px;">
-        <h3>오늘의 담당 전문가</h3>
-        <div style="display: flex; justify-content: center; gap: 20px;">
-            <div>💰<br>투자왕 금</div>
-            <div>❤️<br>연애닥터 목</div>
-            <div>📜<br>총괄 멘토</div>
+
+<div class="scene">
+    <img src="c001.png" alt="Goddess" class="character">
+
+    <div class="dialogue-box">
+        <div class="name">여신 (Goddess)</div>
+        <div class="text">
+            "오시느라 고생 많으셨습니다. 이 먼 곳, 시공간의 틈새까지 당신의 발소리가 닿기만을... 저는 아주 오래전부터 기다리고 있었답니다."
         </div>
     </div>
+</div>
+
 </body>
 </html>
